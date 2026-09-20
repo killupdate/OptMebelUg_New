@@ -1,0 +1,321 @@
+@import "tailwindcss";
+
+/* Tailwind v4: разрешаем dark: через класс .dark (его ставит next-themes на <html>) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Светлая тема (по умолчанию) */
+:root {
+  /* page */
+  --background: #fafafa;
+  --foreground: #0b0f19;
+  --ring: rgba(11, 15, 25, 0.18);
+
+  /* text */
+  --muted: rgba(11, 15, 25, 0.70);
+
+  /* UI */
+  --surface: #ffffff;
+  --border: rgba(11, 15, 25, 0.14);
+  --radius-card: 0.5rem; /* 16px при базовом 16px, но в rem это 1*/
+  --radius-button: 0.3rem;
+  
+  /* buttons/links */
+  --primary-bg: #0b0f19;
+  --primary-fg: #ffffff;
+
+  --accent: #ff4b2b;
+  --hero-fade: rgba(250, 250, 250, 1);
+  --header-h: 56px; /* mobile */
+}
+
+
+@media (min-width: 640px) {
+  :root {
+    --header-h: 60px; /* sm+ */
+  }
+}
+
+.ui-card { border-radius: var(--radius-card); }
+.ui-btn  { border-radius: var(--radius-button); }
+
+/* темная тема */
+html.dark {
+  --background: #0f121b;
+  --foreground: #f5f7ff;
+  --ring: rgba(245, 247, 255, 0.16);
+
+  --muted: rgba(245, 247, 255, 0.72);
+
+  --surface: rgba(255, 255, 255, 0.06);
+  --border: rgba(245, 247, 255, 0.14);
+
+  --primary-bg: #f5f7ff;
+  --primary-fg: #0f121b;
+
+  --hero-fade: rgba(15, 18, 27, 1);
+}
+
+/* Базовые стили страницы */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-gilroy-subhead), system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  overflow-x: hidden;
+}
+* { box-sizing: border-box; }
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+@layer base {
+  body { @apply text-[18px]; }
+}
+html {
+  /* font-size: 18px; mobile default */
+  scroll-behavior: smooth;
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 20px; /* desktop/tablet+ */
+  }
+}
+
+/* мягкий фокус по умолчанию */
+:where(a, button, input, textarea, select, summary, [role="button"], [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: 1px solid var(--ring);
+  outline-offset: 2px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-gilroy-display), system-ui, sans-serif;
+}
+
+/* Для hero subtitle / описаний секций */
+.subhead {
+  font-family: var(--font-gilroy-subhead), system-ui, sans-serif;
+}
+
+/* Fix: avoids bottom “gray band” artifact when Swiper (transform) is clipped */
+.swiper-clip {
+  clip-path: inset(0);
+}
+
+/* Default: no hiding before we are "ready" (prevents initial invisible flash) */
+[data-observe] [data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Once ready, we control reveal states */
+[data-observe][data-ready="true"] [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition-property: transform, opacity;
+  transition-duration: 700ms;
+  transition-timing-function: ease;
+  will-change: transform, opacity;
+}
+
+[data-observe][data-ready="true"][data-inview="true"] [data-reveal] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Direction */
+[data-observe][data-ready="true"] [data-reveal="up"] {
+  transform: translate3d(0, -24px, 0);
+}
+
+[data-observe][data-ready="true"] [data-reveal="down-from-above"] {
+  transform: translate3d(0, -16px, 0);
+}
+
+/* Delays (only when visible) */
+[data-observe][data-ready="true"][data-inview="true"] [data-reveal-delay="1"] { transition-delay: 60ms; }
+[data-observe][data-ready="true"][data-inview="true"] [data-reveal-delay="2"] { transition-delay: 170ms; }
+[data-observe][data-ready="true"][data-inview="true"] [data-reveal-delay="3"] { transition-delay: 260ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-observe][data-ready="true"] [data-reveal] {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------------------------- */
+/* Items mode: не показываем всё сразу, когда контейнер вошёл */
+[data-observe][data-reveal-mode="items"][data-ready="true"][data-inview="true"] [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+}
+
+/* Items mode: показываем только те элементы, которые сами попали в inview */
+[data-observe][data-reveal-mode="items"][data-ready="true"] [data-reveal][data-inview="true"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+/* ---------------------------------------------------------------------------------------------- */
+
+/* HERO right card styles (height comes from inline style in Hero.tsx) */
+.heroRCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* было: background: rgba(0, 0, 0, 0.25); */
+  background: rgba(0, 0, 0, 0.02);
+
+
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+.heroRInner {
+  flex: 1;
+  min-height: 0;
+  padding: 16px;
+
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.heroRInner--dotsRight {
+  grid-template-columns: 1fr 24px;
+}
+
+.heroRInner--dotsBottom {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  gap: 12px;          /* расстояние между слайдом и точками */
+  padding-bottom: 18px; /* чуть больше воздуха снизу */
+}
+
+
+
+.heroRSlide {
+  position: relative;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  /* border: 1px solid rgba(255, 255, 255, 0.12); */
+  background: rgba(255, 255, 255, 0.05);
+  min-height: 0;
+}
+
+.heroRSlideBg {
+  position: absolute;
+  inset: 0;
+}
+
+.heroRSlideOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38);
+}
+
+.heroRSlideTop {
+  position: relative;
+  z-index: 1;
+  padding: 16px;
+  padding-bottom: 76px;
+}
+
+.heroRDrawer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+
+  padding: 14px 16px;
+  background: transparent;
+
+  transform: translateY(90%);
+  transition: transform 480ms ease;
+  will-change: transform;
+}
+
+.heroRDrawer.is-open {
+  transform: translateY(0%);
+}
+
+.heroRFoot {
+  padding: 0 16px 12px 16px;
+}
+
+/* Light theme overrides */
+html:not(.dark) .heroRCard {
+  border-color: rgba(24, 24, 27, 0.15);
+  background: rgba(255, 255, 255, 0.65);
+  color: rgb(24, 24, 27);
+}
+
+html:not(.dark) .heroRSlide {
+  /* border-color: rgba(24, 24, 27, 0.12); */
+  background: rgba(255, 255, 255, 0.7);
+}
+
+html:not(.dark) .heroRSlideOverlay {
+  background: rgba(255, 255, 255, 0.42);
+}
+
+html:not(.dark) .heroRDrawer {
+  background: transparent;
+}
+
+.heroGrain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* About image frame (same feel as Hero right card) */
+.aboutFrame {
+  border-radius: 0.5rem; /* как .heroRCard */
+  overflow: hidden;
+
+  padding: 10px; /* зазор вокруг картинки: можно 8px/10px/12px */
+
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+html:not(.dark) .aboutFrame {
+  border-color: rgba(24, 24, 27, 0.15);   /* как html:not(.dark) .heroRCard */
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.aboutFrameInner {
+  border-radius: 0.4rem; /* как .heroRSlide */
+  overflow: hidden;      /* ВАЖНО: именно это “скругляет” картинку */
+  background: rgba(255, 255, 255, 0.05);
+}
+
+html:not(.dark) .aboutFrameInner {
+  background: rgba(255, 255, 255, 0.70);
+}
+/* add to globals.css if you don't have it already */
+.swiper-clip {
+  overflow: hidden;
+}
+
+.aboutCollapse {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 300ms ease, opacity 300ms ease;
+}
+.aboutCollapse[data-open="true"] {
+  max-height: var(--about-max-h);
+  opacity: 1;
+}

@@ -1,0 +1,70 @@
+{
+  "telegram": {
+    "account": "https://t.me/AzamatKush",
+    "group": "https://t.me/OptMebelUg"
+  },
+  "cta": {
+    "heroPrimary": {
+      "mode": "tgAccount",
+      "override": ""
+    },
+    "portfolio": {
+      "mode": "tgGroup",
+      "override": ""
+    },
+    "stepsManager": {
+      "mode": "tgAccount",
+      "override": ""
+    },
+    "stepsCatalog": {
+      "mode": "tgGroup",
+      "override": ""
+    },
+    "bottomCalc": {
+      "mode": "tgAccount",
+      "override": ""
+    },
+    "bottomTerms": {
+      "mode": "tgAccount",
+      "override": ""
+    },
+    "contactsManager": {
+      "mode": "tgAccount",
+      "override": ""
+    },
+    "contactsTelegramGroup": {
+      "mode": "tgGroup",
+      "override": ""
+    },
+    "aboutExcursion": {
+      "mode": "tgGroup"
+    }
+  },
+  "contacts": {
+    "form": {
+      "submitMode": "email",
+      "mailSubject": "Запрос условий / расчёта — ОптМебельЮг"
+    }
+  },
+  "footer": {
+    "docs": {
+      "privacy": {
+        "title": "Политика конфиденциальности",
+        "body": "..."
+      },
+      "personalData": {
+        "title": "Согласие на обработку персональных данных",
+        "body": "..."
+      }
+    }
+  },
+  "theme": {
+    "accentColor": "#ff4b2b"
+  },
+  "about": {
+    "ctaPanel": {
+      "mode": "telegram",
+      "tgMessage": "Хочу записаться на экскурсию, посмотреть как устроено производство."
+    }
+  }
+}
