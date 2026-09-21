@@ -1,7 +1,7 @@
 {
   "telegram": {
-    "account": "https://t.me/AzamatKush",
-    "group": "https://t.me/OptMebelUg"
+    "account": "https://t.me/+_SpZaE9d6XY1NTUy",
+    "group": "https://t.me/+_SpZaE9d6XY1NTUy"
   },
   "cta": {
     "heroPrimary": {
@@ -17,7 +17,7 @@
       "override": ""
     },
     "stepsCatalog": {
-      "mode": "tgGroup",
+      "mode": "tgAccount",
       "override": ""
     },
     "bottomCalc": {
