@@ -62,6 +62,7 @@ export default function TelegramOrderForm() {
     "idle" | "sending" | "success" | "error"
   >("idle");
   const [error, setError] = useState("");
+  const [closeCountdown, setCloseCountdown] = useState(5);
 
   useEffect(() => {
     let attempts = 0;
@@ -99,6 +100,31 @@ export default function TelegramOrderForm() {
     () => telegramUsername || "Username в Telegram не указан",
     [telegramUsername],
   );
+
+  useEffect(() => {
+    if (status !== "success") {
+      return;
+    }
+
+    setCloseCountdown(5);
+
+    const intervalId = window.setInterval(() => {
+      setCloseCountdown((current) => Math.max(0, current - 1));
+    }, 1000);
+
+    const timeoutId = window.setTimeout(() => {
+      window.Telegram?.WebApp?.close?.();
+    }, 5000);
+
+    return () => {
+      window.clearInterval(intervalId);
+      window.clearTimeout(timeoutId);
+    };
+  }, [status]);
+
+  function closeMiniApp() {
+    window.Telegram?.WebApp?.close?.();
+  }
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -173,10 +199,6 @@ export default function TelegramOrderForm() {
       }
 
       setStatus("success");
-
-      window.setTimeout(() => {
-        window.Telegram?.WebApp?.close?.();
-      }, 1200);
     } catch (submitError) {
       setStatus("error");
       setError(
@@ -195,8 +217,22 @@ export default function TelegramOrderForm() {
           <h1>Заявка отправлена</h1>
           <p>
             Менеджер ОПТ МЕБЕЛЬ ЮГ получил ваши контактные данные.
-            Подтверждение также появится в чате с ботом.
+            После закрытия приложения подтверждение будет ждать вас в чате с ботом.
           </p>
+
+          <button
+            className={styles.successCloseButton}
+            type="button"
+            onClick={closeMiniApp}
+          >
+            <span>Закрыть сейчас</span>
+            <span
+              className={styles.successCountdown}
+              aria-label={`Автоматическое закрытие через ${closeCountdown} секунд`}
+            >
+              {closeCountdown}
+            </span>
+          </button>
         </section>
       </main>
     );

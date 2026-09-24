@@ -240,3 +240,40 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+.successCloseButton {
+  width: 100%;
+  min-height: 54px;
+  margin-top: 20px;
+  padding: 0 14px 0 18px;
+  border: 0;
+  border-radius: 16px;
+  background: #f1f3f5;
+  color: #111318;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform .18s ease, opacity .18s ease;
+}
+
+.successCloseButton:active {
+  transform: scale(.99);
+}
+
+.successCountdown {
+  display: grid;
+  place-items: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  box-sizing: border-box;
+  border-radius: 999px;
+  background: rgba(17,19,24,.08);
+  font-variant-numeric: tabular-nums;
+}
+
