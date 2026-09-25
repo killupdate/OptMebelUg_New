@@ -6,6 +6,8 @@ export const maxDuration = 30;
 const BOT_USERNAME = "optmebelug_givmypr_bot";
 const ALLOWED_METHODS = new Set([
   "answerCallbackQuery",
+  "deleteMessage",
+  "deleteMessages",
   "getChat",
   "getChatMember",
   "getMe",
