@@ -9,7 +9,6 @@ assert.equal(new Set(articles.map(a => a.slug)).size, articles.length);
 for (const t of topics) {
   assert.match(t.id, /^kb\d{2}$/);
   assert.match(t.slug, /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
-  assert.match(`seo_${t.id}`, /^[A-Za-z0-9_-]{1,64}$/);
 }
 for (const a of articles) {
   assert.ok(['ready','draft'].includes(a.status));
@@ -21,4 +20,4 @@ for (const a of articles) {
   for (const s of a.sections) assert.ok(s.heading && s.paragraphs.length > 0 && s.paragraphs.every(p => typeof p === 'string' && p.length > 0));
   for (const slug of a.related) assert.ok(articles.some(other => other.slug === slug && other.status === 'ready'), `Битая ссылка ${slug}`);
 }
-console.log(`OK: ${topics.length} тем; ${articles.length} статей; уникальные адреса; ссылки; обязательные поля; Telegram payload.`);
+console.log(`OK: ${topics.length} тем; ${articles.length} статей; уникальные адреса; ссылки; обязательные поля.`);

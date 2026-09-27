@@ -9,11 +9,7 @@ export function getArticle(slug: string) {
 export function getTopic(slug: string) {
   return topics.find((topic) => topic.slug === slug);
 }
-export function telegramHref(slug: string) {
-  const topic = getTopic(slug);
-  if (!topic) throw new Error(`Unknown knowledge topic: ${slug}`);
-  return `https://t.me/OptMebelUg_GivMyPR_Bot?start=seo_${topic.id}`;
-}
+export const telegramHref = 'https://t.me/OptMebelUg_GivMyPR_Bot';
 export function jsonLd(value: unknown) {
   return JSON.stringify(value).replace(/</g, '\\u003c');
 }
