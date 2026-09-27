@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useMemo, useState } from "react";
+import Link from "next/link";
 import type { Copy } from "@/lib/copy/ru";
 
 type Props = { copy: Copy };
@@ -101,6 +102,12 @@ export default function Footer({ copy }: Props) {
           </div>
 
           <div className="flex flex-wrap justify-center gap-5 text-base sm:justify-end sm:gap-6">
+            <Link
+              href="/knowledge"
+              className="text-black/70 hover:underline dark:text-white/70"
+            >
+              База знаний для бизнеса
+            </Link>
            {/* <a
               href={copy.footer.links.privacy.href}
               onClick={(e) => {
