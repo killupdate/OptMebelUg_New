@@ -1,0 +1,227 @@
+[
+  {
+    "id": "kb01",
+    "cluster": "stm",
+    "clusterTitle": "Производство под СТМ",
+    "question": "Как запустить мебель под своим брендом?",
+    "slug": "mebel-pod-stm",
+    "priority": "P1",
+    "demandVerified": false
+  },
+  {
+    "id": "kb02",
+    "cluster": "stm",
+    "clusterTitle": "Производство под СТМ",
+    "question": "Какие документы и исходные данные нужны для расчёта мебели?",
+    "slug": "tehnicheskoe-zadanie",
+    "priority": "P1",
+    "demandVerified": false
+  },
+  {
+    "id": "kb03",
+    "cluster": "marketplace",
+    "clusterTitle": "Для маркетплейсов",
+    "question": "Как подготовить мебель к поставке на маркетплейс?",
+    "slug": "mebel-dlya-marketpleysov",
+    "priority": "P1",
+    "demandVerified": false
+  },
+  {
+    "id": "kb04",
+    "cluster": "stm",
+    "clusterTitle": "Производство под СТМ",
+    "question": "Как выбрать контрактного производителя мебели?",
+    "slug": "vybor-proizvoditelya",
+    "priority": "P1",
+    "demandVerified": false
+  },
+  {
+    "id": "kb05",
+    "cluster": "stm",
+    "clusterTitle": "Производство под СТМ",
+    "question": "Что согласовать до изготовления образца?",
+    "slug": "soglasovanie-obrazca",
+    "priority": "P1",
+    "demandVerified": false
+  },
+  {
+    "id": "kb06",
+    "cluster": "stm",
+    "clusterTitle": "Производство под СТМ",
+    "question": "Как защитить повторяемость модели в серийной партии?",
+    "slug": "povtoryaemost-partii",
+    "priority": "P1",
+    "demandVerified": false
+  },
+  {
+    "id": "kb07",
+    "cluster": "stm",
+    "clusterTitle": "Производство под СТМ",
+    "question": "Как перейти от эскиза к спецификации изделия?",
+    "slug": "ot-eskiza-k-specifikacii",
+    "priority": "P1",
+    "demandVerified": false
+  },
+  {
+    "id": "kb08",
+    "cluster": "wholesale",
+    "clusterTitle": "Магазинам и оптовикам",
+    "question": "Как сравнивать предложения мебельных фабрик?",
+    "slug": "sravnenie-predlozheniy",
+    "priority": "P2",
+    "demandVerified": false
+  },
+  {
+    "id": "kb09",
+    "cluster": "wholesale",
+    "clusterTitle": "Магазинам и оптовикам",
+    "question": "Как сформировать первую оптовую партию мебели?",
+    "slug": "pervaya-optovaya-partiya",
+    "priority": "P2",
+    "demandVerified": false
+  },
+  {
+    "id": "kb10",
+    "cluster": "wholesale",
+    "clusterTitle": "Магазинам и оптовикам",
+    "question": "Какие вопросы задать фабрике до заказа?",
+    "slug": "voprosy-fabrike",
+    "priority": "P2",
+    "demandVerified": false
+  },
+  {
+    "id": "kb11",
+    "cluster": "wholesale",
+    "clusterTitle": "Магазинам и оптовикам",
+    "question": "Как планировать повторные закупки мебели?",
+    "slug": "povtornye-zakupki",
+    "priority": "P2",
+    "demandVerified": false
+  },
+  {
+    "id": "kb12",
+    "cluster": "wholesale",
+    "clusterTitle": "Магазинам и оптовикам",
+    "question": "Что включить в ассортимент мебельного магазина?",
+    "slug": "assortiment-magazina",
+    "priority": "P2",
+    "demandVerified": false
+  },
+  {
+    "id": "kb13",
+    "cluster": "marketplace",
+    "clusterTitle": "Для маркетплейсов",
+    "question": "Как выбрать конструкцию мебели для продажи в разобранном виде?",
+    "slug": "razbornaya-mebel",
+    "priority": "P2",
+    "demandVerified": false
+  },
+  {
+    "id": "kb14",
+    "cluster": "marketplace",
+    "clusterTitle": "Для маркетплейсов",
+    "question": "Как подготовить комплектацию и инструкцию по сборке?",
+    "slug": "instrukciya-i-komplektaciya",
+    "priority": "P2",
+    "demandVerified": false
+  },
+  {
+    "id": "kb15",
+    "cluster": "marketplace",
+    "clusterTitle": "Для маркетплейсов",
+    "question": "Как проверить упаковку перед серийной отгрузкой?",
+    "slug": "proverka-upakovki",
+    "priority": "P2",
+    "demandVerified": false
+  },
+  {
+    "id": "kb16",
+    "cluster": "marketplace",
+    "clusterTitle": "Для маркетплейсов",
+    "question": "Какие данные об изделии нужны для карточки товара?",
+    "slug": "dannye-kartochki",
+    "priority": "P2",
+    "demandVerified": false
+  },
+  {
+    "id": "kb17",
+    "cluster": "marketplace",
+    "clusterTitle": "Для маркетплейсов",
+    "question": "Как согласовать маркировку с производителем?",
+    "slug": "markirovka-mebeli",
+    "priority": "P2",
+    "demandVerified": false
+  },
+  {
+    "id": "kb18",
+    "cluster": "production",
+    "clusterTitle": "Производство и качество",
+    "question": "Как выбрать материалы для корпусной мебели?",
+    "slug": "materialy-mebeli",
+    "priority": "P2",
+    "demandVerified": false
+  },
+  {
+    "id": "kb19",
+    "cluster": "production",
+    "clusterTitle": "Производство и качество",
+    "question": "Как согласовать фурнитуру и её замену?",
+    "slug": "furnitura",
+    "priority": "P2",
+    "demandVerified": false
+  },
+  {
+    "id": "kb20",
+    "cluster": "production",
+    "clusterTitle": "Производство и качество",
+    "question": "Какие параметры проверять при приёмке партии?",
+    "slug": "priemka-partii",
+    "priority": "P2",
+    "demandVerified": false
+  },
+  {
+    "id": "kb21",
+    "cluster": "production",
+    "clusterTitle": "Производство и качество",
+    "question": "Как фиксировать изменения конструкции между партиями?",
+    "slug": "izmeneniya-konstrukcii",
+    "priority": "P2",
+    "demandVerified": false
+  },
+  {
+    "id": "kb22",
+    "cluster": "logistics",
+    "clusterTitle": "Расчёт и логистика",
+    "question": "Что влияет на стоимость партии корпусной мебели?",
+    "slug": "stoimost-partii",
+    "priority": "P2",
+    "demandVerified": false
+  },
+  {
+    "id": "kb23",
+    "cluster": "logistics",
+    "clusterTitle": "Расчёт и логистика",
+    "question": "Как подготовить данные для расчёта доставки?",
+    "slug": "raschet-dostavki",
+    "priority": "P2",
+    "demandVerified": false
+  },
+  {
+    "id": "kb24",
+    "cluster": "logistics",
+    "clusterTitle": "Расчёт и логистика",
+    "question": "Как согласовать график производства и отгрузок?",
+    "slug": "grafik-otgruzok",
+    "priority": "P2",
+    "demandVerified": false
+  },
+  {
+    "id": "kb25",
+    "cluster": "logistics",
+    "clusterTitle": "Расчёт и логистика",
+    "question": "Когда выгодно заказывать мебель у производителя на Юге России?",
+    "slug": "proizvodstvo-yug-rossii",
+    "priority": "P2",
+    "demandVerified": false
+  }
+]
